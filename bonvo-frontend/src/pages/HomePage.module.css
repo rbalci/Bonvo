@@ -1,0 +1,247 @@
+.page {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Hero ─────────────────────────────────── */
+.hero {
+  background: var(--dark);
+  padding: 32px 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  background: radial-gradient(circle, rgba(244,96,12,0.28) 0%, transparent 70%);
+  border-radius: 50%;
+  top: -80px;
+  right: -50px;
+  pointer-events: none;
+}
+
+.heroGreeting {
+  font-size: 12px;
+  color: rgba(255,255,255,0.45);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.heroTitle {
+  font-family: var(--font-head);
+  font-size: 28px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+  margin-bottom: 22px;
+  position: relative;
+  z-index: 1;
+}
+
+.heroTitle span {
+  color: var(--orange);
+}
+
+.btnNewTrip {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--orange);
+  color: #fff;
+  border: none;
+  border-radius: 14px;
+  padding: 14px 22px;
+  font-family: var(--font-head);
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  position: relative;
+  z-index: 1;
+  letter-spacing: 0.02em;
+}
+
+.btnNewTrip:hover { background: var(--orange-light); }
+.btnNewTrip:active { transform: scale(0.97); }
+
+.btnIcon {
+  width: 22px;
+  height: 22px;
+  background: rgba(255,255,255,0.25);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* ── Section ─────────────────────────────── */
+.section {
+  padding: 24px 24px 0;
+}
+
+.sectionTitle {
+  font-family: var(--font-head);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sectionTitle a {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--orange);
+  cursor: pointer;
+}
+
+/* ── Trip Card ────────────────────────────── */
+.tripCard {
+  background: var(--white);
+  border: 1px solid rgba(26,18,8,0.07);
+  border-radius: var(--radius-lg);
+  padding: 16px 18px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.tripCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(244,96,12,0.1);
+  border-color: rgba(244,96,12,0.2);
+}
+
+.tripFlag {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--orange-pale);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.tripInfo { flex: 1; min-width: 0; }
+
+.tripDest {
+  font-family: var(--font-head);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 4px;
+}
+
+.tripMeta {
+  font-size: 12px;
+  color: var(--mid);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.badge {
+  background: var(--orange-pale);
+  color: var(--orange-dark);
+  border-radius: 6px;
+  padding: 2px 8px;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.badgeCulture { background: var(--success-pale); color: var(--success-dark); }
+.badgeBeach { background: var(--info-pale); color: var(--info); }
+
+.progressWrap {
+  background: rgba(26,18,8,0.07);
+  border-radius: 4px;
+  height: 4px;
+  width: 100%;
+  margin-top: 8px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: var(--orange);
+  border-radius: 4px;
+  transition: width 0.6s ease;
+}
+
+.tripDate {
+  font-size: 11px;
+  color: rgba(26,18,8,0.35);
+  text-align: right;
+  flex-shrink: 0;
+  white-space: pre-line;
+  line-height: 1.5;
+}
+
+/* ── Quick Actions ────────────────────────── */
+.quickGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  padding: 0 24px 32px;
+  margin-top: 14px;
+}
+
+.quickCard {
+  background: var(--white);
+  border: 1px solid rgba(26,18,8,0.07);
+  border-radius: 14px;
+  padding: 16px;
+  cursor: pointer;
+  transition: transform 0.2s, border-color 0.2s;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.quickCard:hover {
+  transform: translateY(-2px);
+  border-color: rgba(244,96,12,0.25);
+}
+
+.quickIcon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+.qOrange { background: var(--orange-pale); }
+.qGreen { background: var(--success-pale); }
+
+.quickLabel {
+  font-family: var(--font-head);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--dark);
+}
+
+.quickSub {
+  font-size: 11px;
+  color: var(--mid);
+  line-height: 1.4;
+}

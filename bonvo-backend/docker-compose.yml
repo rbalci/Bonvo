@@ -1,0 +1,60 @@
+version: '3.9'
+
+services:
+
+  # ── PostgreSQL ─────────────────────────────────────
+  postgres:
+    image: postgres:16-alpine
+    container_name: bonvo-postgres
+    environment:
+      POSTGRES_DB: bonvo
+      POSTGRES_USER: bonvo
+      POSTGRES_PASSWORD: bonvo123
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U bonvo"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ── Spring Boot Backend ────────────────────────────
+  backend:
+    build:
+      context: ./bonvo-backend
+      dockerfile: Dockerfile
+    container_name: bonvo-backend
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_PROFILES_ACTIVE: prod
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: bonvo
+      DB_USER: bonvo
+      DB_PASSWORD: bonvo123
+      JWT_SECRET: ${JWT_SECRET:-your_super_secret_key_min_32_chars_here_change_me}
+      OPENAI_API_KEY: ${OPENAI_API_KEY}
+      AMADEUS_CLIENT_ID: ${AMADEUS_CLIENT_ID:-demo}
+      AMADEUS_CLIENT_SECRET: ${AMADEUS_CLIENT_SECRET:-demo}
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: unless-stopped
+
+  # ── React Frontend ─────────────────────────────────
+  frontend:
+    build:
+      context: ./bonvo
+      dockerfile: Dockerfile
+    container_name: bonvo-frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+volumes:
+  postgres_data:

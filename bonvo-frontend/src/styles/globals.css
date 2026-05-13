@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,400&display=swap');
+@import url('https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --orange: #F4600C;
+  --orange-light: #FF7A2F;
+  --orange-pale: #FFF0E8;
+  --orange-dark: #C44D08;
+  --cream: #FFFBF7;
+  --dark: #1A1208;
+  --dark2: #2D1F0E;
+  --mid: #6B5744;
+  --light: #E8DDD5;
+  --white: #FFFFFF;
+  --success: #1D9E75;
+  --success-pale: #EAF3DE;
+  --success-dark: #3B6D11;
+  --danger: #A32D2D;
+  --danger-pale: #FCEBEB;
+  --info: #185FA5;
+  --info-pale: #E6F1FB;
+  --font-head: 'Syne', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+}
+
+html, body, #root {
+  height: 100%;
+  font-family: var(--font-body);
+  color: var(--dark);
+  background: #F5EDE5;
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+}
+
+input, select, textarea {
+  font-family: var(--font-body);
+}
+
+a {
+  text-decoration: none;
+}
